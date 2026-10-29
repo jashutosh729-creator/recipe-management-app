@@ -1,0 +1,5 @@
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import RecipeForm from '../components/RecipeForm';
+import { useRecipes } from '../context/RecipeContext';
+
+export default function EditRecipe() { const { id } = useParams(); const { userRecipes, updateRecipe } = useRecipes(); const navigate = useNavigate(); const recipe = userRecipes.find((item) => item.id === id); if (!recipe) return <main className="page-shell"><div className="empty-state"><h2>This recipe can’t be edited</h2><p>Only recipes you’ve added can be changed here.</p><Link to="/my-recipes" className="button button-primary">Back to my recipes</Link></div></main>; return <main className="page-shell form-page"><div className="page-intro"><p className="eyebrow">MAKE IT YOUR OWN</p><h1>Edit <em>your recipe.</em></h1><p>Update your recipe box with the latest version.</p></div><RecipeForm recipe={recipe} editing onSave={(data) => { updateRecipe({ ...recipe, ...data }); navigate(`/recipes/${id}`, { state: { toast: 'Your recipe was updated.' } }); }} /></main>; }

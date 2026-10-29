@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix \"Receipe Management App\" run dev",
+    "build": "npm --prefix \"Receipe Management App\" run build",
+    "lint": "npm --prefix \"Receipe Management App\" run lint",
+    "preview": "npm --prefix \"Receipe Management App\" run preview"
+  },
+  "dependencies": {
+    "dom": "^0.0.3",
+    "react": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "router": "^2.2.0"
+  }
+}
